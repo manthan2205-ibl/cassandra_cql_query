@@ -1,0 +1,146 @@
+CREATE TABLE user_token_model (
+    user_token_id uuid PRIMARY KEY, 
+    user_id uuid, 
+    user_token text,
+    created_at timestamp,
+    created_by uuid, 
+    updated_at timestamp,
+    updated_by uuid,
+    deleted_at timestamp,
+    deleted_by uuid,
+    deleted_record boolean);
+               
+                    
+CREATE TABLE user_model (
+    user_id uuid PRIMARY KEY,
+    blocked_by uuid,
+    created_at timestamp,
+    created_by uuid,
+    deleted_at timestamp,
+    deleted_by uuid,
+    deleted_record boolean,
+    device_token map<text, frozen<list<text>>>,
+    email text,
+    is_online boolean,
+    name text,
+    otp int,
+    otp_created_at timestamp,
+    position text,
+    profile_url text,
+    report_to uuid,
+    status text,
+    updated_at timestamp,
+    updated_by uuid
+);
+
+
+
+CREATE TABLE message_model (
+    message_id uuid PRIMARY KEY,
+    created_at timestamp,
+    created_by uuid,
+    delete_type text,
+    deleted_at timestamp,
+    deleted_by uuid,
+    deleted_record boolean,
+    file list<text>,
+    gif_url text,
+    group_id uuid,
+    image list<text>,
+    is_deleted boolean,
+    is_reply boolean,
+    message text,
+    read_by list<frozen<map<text, text>>>,
+    reply_data map<text, text>,
+    sender_id uuid,
+    sender_name text,
+    team_id uuid,
+    time timestamp,
+    type text,
+    updated_at timestamp,
+    updated_by uuid
+);
+
+
+
+CREATE TABLE group_model (
+    group_id uuid PRIMARY KEY,
+    admin_id uuid,
+    created_at timestamp,
+    created_by uuid,
+    deleted_at timestamp,
+    deleted_by uuid,
+    deleted_record boolean,
+    group_name text,
+    group_profile text,
+    group_type text,
+    is_channel boolean,
+    members list<uuid>,
+    read_by list<frozen<map<text, text>>>,
+    recent_message map<text, text>,
+    team_id uuid,
+    type text,
+    updated_at timestamp,
+    updated_by uuid
+);
+
+
+
+CREATE TABLE badge_model (
+    badge_id uuid PRIMARY KEY,
+    badge int,
+    created_at timestamp,
+    created_by uuid,
+    deleted_at timestamp,
+    deleted_by uuid,
+    deleted_record boolean,
+    group_id uuid,
+    updated_at timestamp,
+    updated_by uuid,
+    user_id uuid
+);
+
+
+CREATE TABLE team_model (
+    team_id uuid PRIMARY KEY,
+    admin_id uuid,
+    created_at timestamp,
+    created_by uuid,
+    deleted_at timestamp,
+    deleted_by uuid,
+    deleted_record boolean,
+    is_public boolean,
+    members list<uuid>,
+    profile text,
+    team_name text,
+    time timestamp,
+    updated_at timestamp,
+    updated_by uuid
+);
+
+
+
+
+
+
+
+
+keyspace : master
+
+CREATE TABLE tenant_model (
+    tenant_id uuid PRIMARY KEY, 
+    tenant_name text,
+    organization_name text,
+    phone_no text,
+    employee_strength int,
+    domain_name text,
+    country text,
+    state text,
+    city text,
+    created_at timestamp,
+    created_by uuid, 
+    updated_at timestamp,
+    updated_by uuid,
+    deleted_at timestamp,
+    deleted_by uuid,
+    deleted_record boolean);
