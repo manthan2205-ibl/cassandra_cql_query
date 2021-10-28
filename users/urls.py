@@ -20,6 +20,14 @@ from . views import*
 
 urlpatterns = [
     path('', homepage, name='home'),
-    path('test', TestView.as_view()),
+
+    # onbord
+    path('onbord', OnbordView.as_view()),
+
+    # api User
+    path('user_register', UserRegisterView.as_view()),
+    path('user_login', UserLoginView.as_view()),
+    path('otp_verify', OTPVerifyView.as_view()),
+    path('user_logout', LogoutView.as_view()),
    
 ]

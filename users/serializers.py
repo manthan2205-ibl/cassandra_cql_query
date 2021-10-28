@@ -10,3 +10,18 @@ class NormalSerializer(Serializer):
     
     class Meta:
         fields = ['data']
+
+
+
+class UserRegisterSerializer(Serializer):
+
+    tenant_id = serializers.CharField(required=True)
+    name = serializers.CharField(required=True)
+    email = serializers.EmailField(required=True)
+    profile_url = serializers.CharField(required=True)
+    status = serializers.CharField(required=True)
+    position = serializers.CharField(required=True)
+
+    class Meta:
+        fields = ['tenant_id', 'name', 'email', 'profile_url',
+                  'status', 'position']
