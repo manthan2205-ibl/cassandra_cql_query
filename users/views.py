@@ -23,7 +23,8 @@ from . serializers import NormalSerializer
 from cassandra.cluster import Cluster
 
 
-cluster = Cluster(['127.0.0.1'], control_connection_timeout=10,  port=9042)
+# cluster = Cluster(['127.0.0.1'], control_connection_timeout=10,  port=9042)
+cluster = Cluster()
 session = cluster.connect()
 print('session', session)
 
